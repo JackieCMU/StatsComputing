@@ -1,0 +1,5 @@
+The challenge is pretty useful by giving me a rough big picture of git command. Learning some basic git commands like "git checkout" to switch the branch, "git rev-list -count <branch-name>" to count the number of commits in a branch and "git add <filename>" before "git commit -m"words" ". 
+
+The most confusing part is "track". In one step, we need to track first and pull later. However, I googled and found that "track" would also do what "pull" would do. Besides, "remote" also confused me a little bit. I am wondering whether the remote we create is the same as the origin one.
+
+I am confident in using some basic git commands like "git branch", "git log", "git status" and "git checkout" and etc. Also, learning to use VIM to open the existed file or create a new file is a plus.
