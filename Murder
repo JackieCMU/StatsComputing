@@ -1,0 +1,62 @@
+THE MURDER IS JOE GERMUSKA
+
+# Suppose the current directory is clmystery
+# open instructions
+cat instructions
+
+# change directory to mystery
+cd mystery
+
+# searhc 'CLUE' in crimescene
+grep 'CLUE' crimescene
+
+# with three clues
+# 1.tall male,at least 6
+# 2.no ID, four cards
+# 3.female Annabel with New Zealand accent 
+
+# change directory to interviews
+cd interviews
+
+# search who is tall for all files in the current directory, car ~ Honda
+grep 'tall' *
+
+# move up one level to the parent directory
+cd ..
+
+# search people named Annabel with F, Sun and Church
+grep 'Annabel' people | grep 'F'
+
+# change directory to interviews
+# search people with New Zealand accent in interviews with all files(case-insensitive)
+cd interviews
+grep -i 'New Zealand'
+
+# The witness is Church, search what she said, and open the certain interviw file
+grep 'Church' *
+cat interview-699607
+
+# blue Honda, license with 'L337' as start and '9' as end
+# have a brief look of vehicles with first 20 lines
+head -n 20 vehicles
+
+# check potential murders in vechicles file
+# 1.license with 4 lines after it
+# 2.height with 6 as start with 3 lines before it
+# 3.make with 2 lines after it
+# 4.color with 1 line after it
+grep -A 4 'L337..9' vehicles | grep -B 3 "Height: 6'.." | grep -A 2 'Honda' | grep -A 1 'Blue'
+
+# change directory to memberships
+# search four potential murders' cards condition
+grep 'Erika Owens‘ *
+grep 'Joe Germuska' *
+grep 'Jeremy Bowers' *
+grep 'Jacqui Maher' *
+
+# move up one level to the parent directory
+cd ..
+
+# checkout the last two, who is male
+grep 'Jacqui Maher' people
+grep 'Joe Germuska' people
