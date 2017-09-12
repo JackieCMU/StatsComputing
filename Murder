@@ -1,4 +1,4 @@
-THE MURDER IS JOE GERMUSKA
+THE MURDER IS JEREMY BOWERS
 
 # Suppose the current directory is clmystery
 # open instructions
@@ -49,6 +49,7 @@ grep -A 4 'L337..9' vehicles | grep -B 3 "Height: 6'.." | grep -A 2 'Honda' | gr
 
 # change directory to memberships
 # search four potential murders' cards condition
+cd memberships
 grep 'Erika Owens‘ *
 grep 'Joe Germuska' *
 grep 'Jeremy Bowers' *
@@ -59,4 +60,4 @@ cd ..
 
 # checkout the last two, who is male
 grep 'Jacqui Maher' people
-grep 'Joe Germuska' people
+grep 'Jeremy Bowers' people
