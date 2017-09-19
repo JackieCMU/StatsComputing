@@ -1,1 +1,0 @@
-The result for 50004 cows is 503739.
