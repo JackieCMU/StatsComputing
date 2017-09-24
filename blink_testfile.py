@@ -1,4 +1,7 @@
-import unitest
+from blink import blink
+from blink import add
+
+import unittest
 
 class TestStringMethods(unittest.TestCase):
     def test_equal(self):
