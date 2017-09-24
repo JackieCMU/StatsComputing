@@ -1,3 +1,6 @@
+from blink import blink
+from blink import add
+
 import unitest
 
 class TestStringMethods(unittest.TestCase):
