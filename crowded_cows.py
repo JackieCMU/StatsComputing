@@ -1,34 +1,45 @@
+# use hash table
+# kick out the first one, add the new, key - ID, value - Position
+
 def crowded_cows(cow_list, k):
-    # hash table
-	# kick out the first one, add the new, key - ID, value - Position
-    import collections as cl
-    ht = cl.OrderedDict()
-    maximal_ID = -1
     
-    # make a hash table to record ID and position
-    for pos, value in enumerate(cow_list[:k]):
-        ht[value] = pos
-    for pos, ID in enumerate(cow_list[k:]):
-        if ((ID in ht) & (ID > maximal_ID)):
-            ht.popitem(last = False)
-            ht[ID] = pos
-            ht.move_to_end(ID)
-            maximal_ID = ID
-        elif ID in ht:
-            ht.popitem(last = False)
-            ht[ID] = pos
-            ht.move_to_end(ID)
+    import collections as cl
+    window_cows = cl.OrderedDict()  # window_cows: the cows with ID and position in the window
+    maximal_id = -1
+    length = len(cow_list)
+    
+    # make a hash table to record ID and position for the first k cows
+    for i in range(k):
+        if cow_list[i] in window_cows and cow_list[i] > maximal_id:
+            window_cows[cow_list[i]] = i
+            window_cows.move_to_end(cow_list[i])
+            maximal_id = cow_list[i]
+        elif cow_list[i] in window_cows:
+            window_cows[cow_list[i]] = i
+            window_cows.move_to_end(cow_list[i])
         else:
-            ht.popitem(last = False)
-            ht[ID] = pos
-    return maximal_ID
+            window_cows[cow_list[i]] = i
 
-# test the function by command line
-import sys
-import ast
+    # move the window and record the new cow and remove the old one if condition is met
+    for i in range(k, length):
+        first_key = next(iter(window_cows.keys()))
+        first_index = window_cows[first_key]
+        if cow_list[i] in window_cows and cow_list[i] > maximal_id:
+            # check whether the first (key, value) would be kicked out
+            if i - first_index == k:
+                window_cows.popitem(last=False)
+            window_cows[cow_list[i]] = i
+            window_cows.move_to_end(cow_list[i])
+            maximal_id = cow_list[i]
+        elif cow_list[i] in window_cows:
+            if i - first_index == k:
+                window_cows.popitem(last=False)
+            window_cows[cow_list[i]] = i
+            window_cows.move_to_end(cow_list[i])
+        else:
+            if i - first_index == k:
+                window_cows.popitem(last=False)
+            window_cows[cow_list[i]] = i
 
-cow_list = ast.literal_eval(sys.argv[1])
-k = int(sys.argv[2])
+    return maximal_id
 
-# plug in a list and an integer
-print(crowded_cows(cow_list, k))
