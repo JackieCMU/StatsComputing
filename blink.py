@@ -34,13 +34,3 @@ def add(current_):
     
     return current_[-1] + current_[0:-1]
 
-# test the function by command line
-# example: python blink.py [1, 0, 0] 2
-
-import sys
-import ast
-
-states = ast.literal_eval(sys.argv[1])
-B = int(sys.argv[2])
-
-print(blink(states, B))
