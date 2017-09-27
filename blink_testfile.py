@@ -1,5 +1,4 @@
-from blink import blink
-from blink import add
+from blink import *
 
 import unittest
 
