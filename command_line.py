@@ -2,8 +2,7 @@
 # example: python blink.py [1, 0, 0] 2
 import sys
 import ast 
-from blink import blink
-from blink import add
+from blink import *
 
 states = ast.literal_eval(sys.argv[1])
 B = int(sys.argv[2])
