@@ -1,36 +1,40 @@
+# change bulbs' state for B times based on a certain rule
+# in this case, rule is changing bulb's state if state of its left is 1
 def blink(states, B):
-    # the main strategy is to use Binary XOR Operation
     
-    # record the number of bulbs
-    length = '0' + str(len(states)) + 'b'
+    cur_state = {}
     
-    # make a string for state of bulbs
-    current_ = ''
-    for s in states:
-        current_ += str(s)
-    add_ = add(current_)
-    loop = []
+    for pos, state in enumerate(states):
+        cur_state[pos] = state
 
-    while current_ not in loop:
-        loop.append(current_)
-        current_ = format(int(current_, 2) ^ int(add_, 2), length)
-        add_ = add(current_)
+    loop_state = []
 
-    # remove the initial states
-    loop = loop[1:]
+# the states are limited and repeated
+for i in range(B):
+    add_state = blink_all(cur_state)
+        
+        # special case if all states are 0
+        if 1 not in add_state:
+            return add_state
+    elif add_state in loop_state:
+        break
+        loop_state.append(add_state)
 
-    # get the position
-    index = (B % len(loop)) - 1
-    
-    # if all bulbs are off, be careful
-    if ('1' not in loop[-1]) & (B >= len(loop)):
-        return  [int(s) for s in loop[-1]]
+return loop_state[B % len(loop_state) - 1]
+
+# change state once based on left bulb's state
+def blink_once(left, cur):
+    if left == 1:
+        return 1 - cur
     else:
-        return [int(s) for s in loop[index]]
+        return cur
 
-def add(current_):
-    # the strategy to turn on light
-    # in this case, check the bulbs to the left
-    
-    return current_[-1] + current_[0:-1]
-
+# change all states
+def blink_all(cur_state):
+    length = len(cur_state)
+    last = cur_state[length - 1]
+    for pos in range(length - 1, 0, -1):
+        cur_state[pos] = blink_once(cur_state[pos - 1], cur_state[pos])
+    if last == 1:
+        cur_state[0] = 1 - cur_state[0]
+    return list(cur_state.values())
