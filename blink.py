@@ -3,22 +3,19 @@
 def blink(states, B):
     
     cur_state = {}
-    
     for pos, state in enumerate(states):
         cur_state[pos] = state
-
     loop_state = []
 
 # the states are limited and repeated
 for i in range(B):
     add_state = blink_all(cur_state)
-        
-        # special case if all states are 0
-        if 1 not in add_state:
-            return add_state
+    # special case if all states are 0
+    if 1 not in add_state:
+        return add_state
     elif add_state in loop_state:
         break
-        loop_state.append(add_state)
+    loop_state.append(add_state)
 
 return loop_state[B % len(loop_state) - 1]
 
