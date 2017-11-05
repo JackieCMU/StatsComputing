@@ -9,8 +9,8 @@ def testComplexity(txt):
     data['number'], data['word'] = data[colname].str.split("\t").str
     data.number = data.number.astype(float)
 
-    end = data.shape[0]*199//200
-    step = data.shape[0]//200
+    end = data.shape[0]*99//100
+    step = data.shape[0]//100
     words, times = [], []
     for i in range(0, end//step):
         dic = list(zip(data.number[0:(i+1)*step], data.word[0:(i+1)*step]))
@@ -22,9 +22,7 @@ def testComplexity(txt):
         times.append(end_time)
     return words, times
 
-
 words, times = testComplexity("movies.txt")
-
 import matplotlib.pyplot as plt
 plt.plot(words, times)
 plt.xlabel("Number of words")
