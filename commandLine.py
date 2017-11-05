@@ -4,10 +4,10 @@ from readFile import *
 from Trie import *
 
 searchWord = sys.argv[1]
-url = sys.argv[2]
-words = readFile(url)
+txt = sys.argv[2]
+words = readFile(txt)
 t  = Trie()
-t.insert(words, t.head)
+t.insert(words)
 K = int(sys.argv[3])
 
 
