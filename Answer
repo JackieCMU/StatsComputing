@@ -1,5 +1,5 @@
 1.For the largest input file(movies.txt), I use around 24 seconds to build a Trie. For searching the words, the algorithm only use time less than a second. 
 
-2. Based on the graph, I think the complexity of my algorithm to build the Trie is roughly O(n).
+2.Based on the graph, I think the complexity of my algorithm to build the Trie is roughly O(n).
 
 3.Building the Trie spent too much time, especially in building each nodes. For movie dataset, building all nodes spends 16 seconds. Since I use dictionary to store the information, I might think it is the best structure to do this. 
