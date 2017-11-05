@@ -66,8 +66,7 @@ class Trie:
                 if node.weight >= 0:
                     nodeExist.weight = node.weight
                 currentNode = nodeExist
-
-
+                
     # find the node with the word as what we want to search
     def search(self, character):
         '''
