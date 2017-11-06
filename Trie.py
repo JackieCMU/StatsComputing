@@ -5,13 +5,31 @@ class Node:
         child: dictionary, key is character, value is node
         maxWeight: its maxWeight
         weight: its weight if it is a word
-        visited: function in autocomplete.py
         '''
         self.word = word
         self.children = {}
         self.maxWeight = maxWeight
         self.weight = weight
-        self.visited = False
+    
+    def __lt__(self, other):
+        '''
+        compare node and other
+        return: True or False
+        '''
+        if isinstance(other, str):
+            return False
+        else:
+            return self.maxWeight > other.maxWeight
+
+    def __gt__(self, other):
+        '''
+        compare node and other
+        return: True or False
+        '''
+        if isinstance(other, str):
+            return True
+        else:
+            return self.maxWeight > other.maxWeight
 
     def isWords(self):
         '''
@@ -36,8 +54,7 @@ class Trie:
         '''
         dic: dictionary of inputs, key is word, value is weight
         '''
-        for i in range(len(wordPairs)):
-            wordPair = wordPairs[i]
+        for wordPair in wordPairs:
             self.__insert(wordPair, self.head)
 
     # Initial a node every time
@@ -49,9 +66,9 @@ class Trie:
     def __insert(self, wordPair, currentNode):
         '''
         wordPair: word and its weight
-        tire: built Tire
+        trie: built Trie
         '''
-        weight, word = wordPair[0], wordPair[1]
+        weight, word = wordPair
         for i in range(len(word)):
             node = Node(word[:i + 1], weight)
             if i == len(word) - 1:

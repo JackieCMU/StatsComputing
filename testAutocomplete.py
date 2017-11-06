@@ -3,7 +3,6 @@ from readFile import *
 from Trie import *
 import unittest
 
-
 class TestStringMethods(unittest.TestCase):
     def test_Node(self):
         node1, node2  = Node(), Node()
@@ -34,7 +33,6 @@ class TestStringMethods(unittest.TestCase):
         word1 = readFile('wiktionary.txt')
         trie1 = Trie()
         trie1.insert(word1)
-
         self.assertTrue(autocomplete("the", trie1, 5) == [(5627187200, "the"),
                                                        (334039800, "they"),
                                                        (282026500, "their"),
@@ -51,22 +49,20 @@ class TestStringMethods(unittest.TestCase):
         word2 = [(2, "a"), (19, "apple"), (10, "age"), (1, "action")]
         trie2 = Trie()
         trie2.insert(word2)
-
         self.assertTrue(autocomplete("a", trie2, 2) == [(19, "apple"), (10, "age")])
         self.assertTrue(autocomplete("a", trie2, 3) == [(19, "apple"), (10, "age"), (2, "a")])
         self.assertTrue(autocomplete("d", trie2, 1) == "This word does not exist")
+        
         # pokemon
         word3 = readFile('pokemon.txt')
         trie3 = Trie()
         trie3.insert(word3)
-
         self.assertTrue(autocomplete("Tyrunt", trie3, 1) == [(0, "Tyrunt")])
 
         # movie
         word4 = readFile('movies.txt')
         trie4 = Trie()
         trie4.insert(word4)
-
         self.assertTrue(autocomplete('Iron Man (2008)', trie4, 5) == [(318412101, 'Iron Man (2008)'),
                                                                     (0, 'Iron Man (2008) (VG)')])
 
@@ -76,9 +72,13 @@ class TestStringMethods(unittest.TestCase):
         word6 = [(5, "i"), (8, "inn")]
         trie6 = Trie()
         trie6.insert(word6)
-
         self.assertTrue(autocomplete("i", trie5, 1) == [(10, "in")])
         self.assertTrue(autocomplete("i", trie6, 1) == [(8, "inn")])
+        
+        word7 = [(400, "itt"), (2, "i"), (9, "it"), (10, "i0")]
+        trie7 = Trie()
+        trie7.insert(word7)
+        self.assertTrue(autocomplete("i", trie7, 1) == [(400, "itt")])
 
     def randomized_Test(self):
 
@@ -103,7 +103,6 @@ class TestStringMethods(unittest.TestCase):
             trie = Trie()
             trie.insert(wordPairs)
             return(autocomplete(character, trie, K) == sortWord[:K])
-
         self.assertTrue(testEqual('r', 100, 're', 5))
         self.assertTrue(testEqual('a', 100, 'au', 3))
 
