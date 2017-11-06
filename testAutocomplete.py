@@ -22,7 +22,8 @@ class TestStringMethods(unittest.TestCase):
         self.assertTrue(trie2.head.children["a"].weight == 12)  # the maxWeight of word "a" should be its weight
         self.assertTrue(trie2.head.children["a"].weight == 12)  # the ownWeight of "a" is 12
         self.assertTrue(trie2.head.children["a"].children["ap"].weight == -float("inf")) # "ap" is not a word, thus it has no ownWeight
-
+    
+    # make sure testing txt.file in the code folder
     def test_autocomplete(self):
         '''
         For testing autocomplete with 3 text file
