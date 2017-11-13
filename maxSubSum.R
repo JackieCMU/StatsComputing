@@ -1,3 +1,7 @@
+# add value each time
+# if accumulative sum is smaller than max
+# if accumulative sum is less than 0
+# ignore the current accumulative sum, reset it as 0
 maxSubSum = function(list) {
   accum = 0
   maxSum = 0
@@ -11,4 +15,3 @@ maxSubSum = function(list) {
   }
   return(maxSum)
 }
-
