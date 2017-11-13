@@ -12,5 +12,3 @@ test_that("maxSubSum works on select examples", {
 test_that("maxSubSum on the empty vector", {
   expect_equal(maxSubSum(c()), 0)
 })
-
-test_that("maxSubSum wo")
