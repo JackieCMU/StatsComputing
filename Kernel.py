@@ -1,5 +1,4 @@
 import numpy as np
-from functools import reduce
 
 def GaussianKernel(s):
     '''
@@ -20,19 +19,11 @@ def BoxcarKernel(s):
     else:
         return 0
 
-def help(acum, x):
-    '''
-    acum: initial value
-    x: number
-    return: acum + x**2
-    '''
-    return acum + x**2
-
 def distance(s):
     '''
-    s: matrix
+    s: vector
     return: number as (xs-x)/b
     '''
-    s = np.array(s)[0].tolist()
-    s = np.sqrt(reduce(help, s, 0))
+    s = np.array(s)
+    s = np.sqrt(np.sum(s**2))
     return s

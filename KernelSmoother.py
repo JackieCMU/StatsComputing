@@ -1,6 +1,5 @@
 from Kernel import *
 import numpy as np
-from functools import reduce
 
 def make_kernel_smoother(xs, ys, bandwidth, kernel):
     '''
@@ -16,23 +15,12 @@ def make_kernel_smoother(xs, ys, bandwidth, kernel):
         x: matrix of x that we observe and want to estimate its f(x)
         return: function
         '''
-        x = np.matrix(x)
-        if bandwidth < 0:
-            return "The bandwidth cannot be negative"
-        else:
-            w = list(map(kernel, (xs - x) / bandwidth))
-            denominator = reduce(lambda x, y: x + y, w)
-            nominator = reduce(lambda x, y: x + y, map(lambda x, y: x * y, w, ys))
-            if denominator == 0:
-                return "The data is not enough to make an estimation"
-            else:
-                estimate = nominator / denominator
-                return estimate.tolist()[0][0]
+        return helper(x, xs, ys, bandwidth, kernel)
     return h
 
 def smoother_factory(xs, ys, kernel):
     '''
-        xs: matrix of x
+    xs: matrix of x
     ys: matrix of y
     kernel: function, self-defined kernel function
     return: estimated value
@@ -48,17 +36,28 @@ def smoother_factory(xs, ys, kernel):
             x: matrix of x that we observe and want to estimate its f(x)
             return: function
             '''
-            x = np.matrix(x)
-            if bandwidth < 0:
-                return "The bandwidth cannot be negative"
-            else:
-                w = list(map(kernel, (xs - x)/bandwidth))
-                denominator = reduce(lambda x,y : x+y, w)
-                nominator = reduce(lambda x,y : x+y, map(lambda x,y : x*y, w, ys))
-                if denominator == 0:
-                    return "The data is not enough to make an estimation"
-                else:
-                    estimate = nominator / denominator
-                    return estimate.tolist()[0][0]
+            return helper(x, xs, ys, bandwidth, kernel)
         return h
     return g
+
+def helper(x, xs, ys, bandwidth, kernel):
+    '''
+    x: matrix of x that we observe and want to estimate its f(x)
+    xs: matrix of x
+    ys: matrix of y
+    bandwidth: number, self-defined width
+    kernel: function, self-defined kernel function
+    return: function
+    '''
+    x = np.matrix(x)
+    if bandwidth < 0:
+        raise ValueError("Bandwidth cannot be negative")
+    else:
+        w = list(map(kernel, (xs - x) / bandwidth))
+        denominator = sum(w)
+        nominator = (w*ys).tolist()[0][0]
+        if denominator == 0:
+            raise ValueError("All weights are zero")
+        else:
+            estimate = nominator / denominator
+            return estimate
