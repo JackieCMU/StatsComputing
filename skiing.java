@@ -34,9 +34,4 @@ public class skiing {
 		}
 		return sum;
 	}
-	
-	public static void main(String[] args) {
-		int [] hills1 = {1, 4, 20, 21, 24};
-		System.out.println(hill_cost(hills1, 0));
-	}
 }
