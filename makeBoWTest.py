@@ -8,7 +8,7 @@ class TestStringMethods(unittest.TestCase):
         path = 'testfile'
         wordList = tokenize(path)
         self.assertEquals(makeBoW(wordList, ['my', 's', 'is']),
-                          {'is':[1, 2, 0], 'my':[1, 1, 0], 's':[0, 0, 2]})
+                          {'my':[1, 1, 0], 's':[0, 0, 2], 'is':[1, 2, 0]})
         self.assertEquals(makeBoW(wordList, ['j']), {'j':[0, 0, 0]})
 
 if __name__ == '__main__':

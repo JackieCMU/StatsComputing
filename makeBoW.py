@@ -1,5 +1,12 @@
+import collections as cl
+
 def makeBoW(wordList, lexicon):
-    bagWords = {}
+    '''
+    wordList: a list of all the world in the documents
+    lexicon: a list of words
+    return: an ordered dictionary con
+    '''
+    bagWords = cl.OrderedDict()
     count = 0
     for subwordList in wordList:
         if count == 0:
