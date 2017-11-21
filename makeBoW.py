@@ -8,12 +8,10 @@ def makeBoW(wordList, lexicon):
     list of count as value
     '''
     bagWords = cl.OrderedDict()
-    first = True
     for subwordList in wordList:
-        if first:
+        if bagWords:
             for item in lexicon:
                 bagWords[item] = [subwordList.count(item)]
-            first = False
         else:
             for item in lexicon:
                 bagWords[item].append(subwordList.count(item))
