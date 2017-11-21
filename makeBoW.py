@@ -2,17 +2,18 @@ import collections as cl
 
 def makeBoW(wordList, lexicon):
     '''
-    wordList: a list of all the world in the documents
+    wordList: a list of all words in the documents
     lexicon: a list of words
-    return: an ordered dictionary con
+    return: an ordered dictionary with word as key
+    list of count as value
     '''
     bagWords = cl.OrderedDict()
-    count = 0
+    first = True
     for subwordList in wordList:
-        if count == 0:
+        if first:
             for item in lexicon:
                 bagWords[item] = [subwordList.count(item)]
-            count += 1
+            first = False
         else:
             for item in lexicon:
                 bagWords[item].append(subwordList.count(item))
