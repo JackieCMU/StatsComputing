@@ -57,6 +57,5 @@ def helper(x, xs, ys, bandwidth, kernel):
     nominator = (w*ys).tolist()[0][0]
     if denominator == 0:
         raise ValueError("All weights are zero")
-    else:
-        estimate = nominator / denominator
-        return estimate
+    estimate = nominator / denominator
+    return estimate
