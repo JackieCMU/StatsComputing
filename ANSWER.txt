@@ -1,0 +1,23 @@
+1. It is easy to be modified. It takes few seconds to load the data and generate report.
+Since the whole process is written as several file, it makes user easy to use them.
+
+2.
+2.1 1599
+
+2.2
+6437 rows do not meet the condition in filter process like
+report name is not 'OFFENSE 2.0'
+section is not valid
+not 8 columns or have less than 8 values
+
+92 rows do not meet the condition in ingest process like
+neighborhood does not match with the value in neighborhood table
+the ID is duplicated
+
+The total invalid data that have been skipped are 6529.
+
+2.3 56
+
+2.4 6
+
+2.5 1

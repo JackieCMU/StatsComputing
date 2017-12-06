@@ -1,0 +1,9 @@
+_id,REPORT_NAME,SECTION,DESCRIPTION,ARREST_TIME,ADDRESS,NEIGHBORHOOD,ZONE
+20888,OFFENSE 2.0,3802(a)(1),DUI - General Impairment,2015-03-10T02:29:00,7th Ave & Grant St,Golden Triangle/Civic Arena,2
+20889,OFFENSE 2.0,3714,Careless Driving,2015-03-10T02:29:00,7th Ave & Grant St,Golden Triangle/Civic Arena,2
+20890,OFFENSE 2.0,3304,Vehicle Turning Left.,2015-03-10T02:29:00,7th Ave & Grant St,Golden Triangle/Civic Arena,2
+20890,OFFENSE 2.0,3304,Criminal Mischief.,2015-03-10T02:30:00,100 block 6th St,Golden Triangle/Civic Arena,2
+20891,ARREST,5505,Public Drunkenness,2015-03-10T02:30:00,100 block 6th St,Golden Triangle/Civic Arena,2
+20892,ARREST,5503,Disorderly Conduct.,2015-03-10T02:30:00,100 block 6th St,Golden Triangle/Civic Arena,2
+20893,ARREST,3304,Criminal Mischief.,2015-03-10T02:30:00,100 block 6th St,Golden Triangle/Civic Arena,2
+20894,OFFENSE 2.0,2701,Disorderly Conduct.,2015-03-10T02:30:00,100 block 6th St,Golden Triangle/Civic Arena,2
