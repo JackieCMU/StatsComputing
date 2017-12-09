@@ -23,8 +23,8 @@ def ingest():
                 valueDict['neighborhood'] = catchneighbor[0]
                 corrected += 1
             try:
-                cur.execute("INSERT INTO blotter (" + ", ".join(valueDict.keys()) + ")"
-                "VALUES (" + ",".join(["%(" + value + ")s" for value in valueDict]) + ");",
+                cur.execute("INSERT INTO blotter (id, report_name, section, description, arrest_time, address, zone)"
+                "VALUES (%(id)s, %(report_name)s, %(section)s, %(description)s, %(arrest_time)s, %(address)s, %(zone)s);",
                 valueDict)
                 conn.commit()
             except psycopg2.DatabaseError as error:
