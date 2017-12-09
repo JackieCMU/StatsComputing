@@ -21,8 +21,3 @@ The total invalid data that have been skipped are 6529.
 2.4 6
 
 2.5 1
-
-
-12 0 7 1 10 0 12 14
-
-2 1 1 2
