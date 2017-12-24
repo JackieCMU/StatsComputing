@@ -4,7 +4,7 @@ from helperFunction import *
 from build_database import *
 from filter_data import filter
 
-conn = psycopg2.connect(host = 'sculptor.stat.cmu.edu', database = 'jiaqih1', user = 'jiaqih1', password = 'eu2Uenais')
+conn = psycopg2.connect(host = '', database = '', user = '', password = '')
 cur = conn.cursor()
 
 class TestStringMethods(unittest.TestCase):
