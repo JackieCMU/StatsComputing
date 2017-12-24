@@ -6,7 +6,7 @@ from helperFunction import *
 
 def ingest():
     time = str(date.today().year) + "-" + str(date.today().month) + "-" + str(date.today().day)
-    conn = psycopg2.connect(host = 'sculptor.stat.cmu.edu', database = 'jiaqih1', user = 'jiaqih1', password = 'eu2Uenais')
+    conn = psycopg2.connect(host = '', database = '', user = '', password = '')
     cur = conn.cursor()
     reader = csv.reader(sys.stdin, delimiter=',')
     corrected = 0
