@@ -141,7 +141,7 @@ def Changezone():
         writer = csv.writer(file)
         writer.writerows(output)
 
-conn = psycopg2.connect(host = 'sculptor.stat.cmu.edu', database = 'jiaqih1', user = 'jiaqih1', password = 'eu2Uenais')
+conn = psycopg2.connect(host = '', database = '', user = '', password = '')
 cur = conn.cursor()
 
 CountCrimePerWeek_Table()
